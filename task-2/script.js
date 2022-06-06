@@ -40,7 +40,7 @@ function handleClick() {
         box.addEventListener("click", function() {
             box.innerText = turn
             if(findWinner()){
-                console.log(`${turn} won`)
+                alert(`${turn} won`)
             }
             turn = turn === "x" ? "o" : "x"
         }, {once: true})
