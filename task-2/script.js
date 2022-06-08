@@ -2,11 +2,8 @@ let boxElements = document.querySelectorAll('.box')
 const btn = document.getElementsByTagName('button')[0]
 let turn = "x"
 boxElements = Array.from(boxElements)
-
-
-start();
-btn.addEventListener('click', start)
-
+const wrapper = document.getElementsByClassName('wrapper')[0]
+// wrapper.innerText = "halo"
 
 const winningCombination = [
     [0,1,2],
@@ -22,30 +19,48 @@ const winningCombination = [
 function findWinner() {
     return winningCombination.some(combination => {
         return combination.every(index => {
-            return(boxElements[index].innerText.trim() === turn)
+            return(boxElements[index].innerText === turn)
         })
     })
 }
 
-function start() {
-    turn = "x"
-    boxElements.forEach((box) => {
-        box.innerText = ""
+function checkDraw() {
+    return boxElements.every(box => {
+        // console.log(box)
+        return box.innerText === "x" || box.innerText === "o"
     })
-    handleClick()
 }
 
-function handleClick() {
+function endGame() {
+    boxElements.forEach(box => {
+        box.removeEventListener("click", handleClick, { once: true });
+    });
+}
+
+function handleClick(e) {
+    const boxTarget = e.target;
+    boxTarget.innerText = turn
+    if(findWinner()){
+        wrapper.append(`${turn} win`)
+        endGame();
+    } else if(checkDraw()) {
+        wrapper.append(`draw`)
+    }
+    turn = turn === "x" ? "o" : "x"
+}
+
+function start() {
+    turn = "x"
+    wrapper.innerText = ""
     boxElements.forEach((box) => {
-        box.addEventListener("click", function() {
-            box.innerText = turn
-            if(findWinner()){
-                alert(`${turn} won`)
-            }
-            turn = turn === "x" ? "o" : "x"
-        }, {once: true})
+        box.innerText = "";
+        box.addEventListener("click", handleClick, {once: true})
     })
 }
+
+
+start();
+btn.addEventListener('click', start)
 
     
 

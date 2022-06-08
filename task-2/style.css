@@ -10,6 +10,11 @@ body {
     align-items: center;
 }
 
+.wrapper {
+    margin-bottom: 4rem;
+    font-size: 4rem;
+}
+
 .board {
     width: 400px;
     height: 400px;
