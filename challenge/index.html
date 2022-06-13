@@ -21,13 +21,16 @@
         <div class="back-btn d-sm-none d-lg-block"><</div>
         <img src="./assets/logo.png" alt="logo" class="logo">
         <div class="title">ROCK PAPER SCISSORS</div>
-        <div class="back-sm d-sm-block d-lg-none">Back</div>
+        <!-- <div class="back-sm d-sm-block d-lg-none">Back</div> -->
     </nav>
 
     <div class="container game">
         <div class="row row-one">
-            <div class="col d-flex flex-column justify-content-center align-items-center player1">
-                <h3>PLAYER 1</h3>
+            <div class="col-md d-lg-none d-flex justify-content-center align-items-center">
+                <h5 class="">PLAYER 1</h5>
+            </div>
+            <div class="col-md d-flex flex-md-row flex-lg-column justify-content-center align-items-center player1">
+                <h3 class="d-sm-none">PLAYER 1</h3>
                 <div class="rock image">
                     <img src="./assets/batu.png" alt="rock" class="img-rock">
                 </div>
@@ -37,16 +40,20 @@
                 <div class="scissors image">
                     <img src="./assets/gunting.png" alt="scissors" class="img-scissors">
                 </div>
+                <br>
             </div>
-            <div class="col d-flex flex-column justify-content-center align-items-center">
+            <div class="col-md d-flex flex-column justify-content-center align-items-center">
                 <div class="versus">
                     VS
                 </div>
                 <div class="result"></div>
                 <img src="./assets/refresh.png" alt="restart" class="restart">
             </div>
-            <div class="col d-flex flex-column justify-content-center align-items-center comp">
-                <h3>COM</h3>
+            <div class="col-md d-lg-none d-flex justify-content-center align-items-center">
+                <h5 class="">COM</h5>
+            </div>
+            <div class="col-md d-flex flex-md-row flex-lg-column justify-content-center align-items-center comp">
+                <h3 class="d-sm-none">COM</h3>
                 <div class="rock image">
                     <img src="./assets/batu.png" alt="rock" class="img-rock">
                 </div>
